@@ -1,0 +1,23 @@
+{
+  "name": "mean-trans-Al-Andalus",
+  "version": "1.0.0",
+  "description": "This will be a project on public transport",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/abel-hb/mean-trans-Al-Andalus.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/abel-hb/mean-trans-Al-Andalus/issues"
+  },
+  "homepage": "https://github.com/abel-hb/mean-trans-Al-Andalus#readme",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}
