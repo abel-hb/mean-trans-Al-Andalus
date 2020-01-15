@@ -1,8 +1,13 @@
 const express = require('express');
 const router = express.Router();
+const transportCtrl = require('../controllers/transport.controllers');
 
 
-router.get('/', (req,res) => {
-    res.send('Hello Word Transport');
-})
+router.get('/', transportCtrl.getTransports);
+router.post('/', transportCtrl.getTransport);
+router.get('/', transportCtrl.createTransport);
+router.put('/', transportCtrl.editTransport);
+router.delete('/', transportCtrl.deleteTransport);
+
+
   module.exports = router;
