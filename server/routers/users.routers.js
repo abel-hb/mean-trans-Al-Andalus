@@ -5,9 +5,9 @@ const UsersCtrl = require('../controllers/users.controllers');
 
 router.get('/', UsersCtrl.getUsers);
 router.post('/', UsersCtrl.createUser);
-router.get('/', UsersCtrl.getUser);
-router.put('/', UsersCtrl.editUser);
-router.delete('/', UsersCtrl.deleteUser);
+router.get('/:id', UsersCtrl.getUser);
+router.put('/:id', UsersCtrl.editUser);
+router.delete('/:id', UsersCtrl.deleteUser);
 
 
   module.exports = router;

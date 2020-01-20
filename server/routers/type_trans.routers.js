@@ -5,8 +5,8 @@ const typeTransCtrl = require('../controllers/type_trans.controllers');
 
 router.get('/', typeTransCtrl.gettypeTrans);
 router.post('/', typeTransCtrl.gettypeTran);
-router.get('/', typeTransCtrl.createtypeTran);
-router.put('/', typeTransCtrl.edittypeTran);
-router.delete('/', typeTransCtrl.deletetypeTran);
+router.get('/:id', typeTransCtrl.createtypeTran);
+router.put('/:id', typeTransCtrl.edittypeTran);
+router.delete('/:id', typeTransCtrl.deletetypeTran);
 
   module.exports = router;

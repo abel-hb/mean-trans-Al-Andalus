@@ -14,11 +14,11 @@ app.use(express.json());
 
 
 //Routers
-app.use('api/transport', require('./routers/transport.routers'));
-app.use('api/aplication', require('./routers/aplication.routers'));
-app.use('api/places', require('./routers/places.routers'));
-app.use('api/type_trans', require('./routers/type_trans.routers'));
-app.use('api/users', require('./routers/users.routers'));
+app.use('/api/transport', require('./routers/transport.routers'));
+app.use('/api/aplication', require('./routers/aplication.routers'));
+app.use('/api/places', require('./routers/places.routers'));
+app.use('/api/type_trans', require('./routers/type_trans.routers'));
+app.use('/api/users', require('./routers/users.routers'));
 
 
 //Starting the server
