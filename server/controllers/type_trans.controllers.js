@@ -1,3 +1,4 @@
+
 const typeTransCtrl = {};
 
 typeTransCtrl.gettypeTrans = (req,res) => {

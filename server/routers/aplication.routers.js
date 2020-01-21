@@ -1,13 +1,13 @@
 const express = require('express');
-const router2 = express.Router();
-const PlacesCtrl = require('../controllers/aplication.controllers');
+const router = express.Router();
+const AplicationCtrl = require('../controllers/aplication.controllers');
 
 
-router2.get('/', PlacesCtrl.getAplications);
-router2.post('/', PlacesCtrl.createAplication);
-router2.get('/:id', PlacesCtrl.getAplication);
-router2.put('/:id', PlacesCtrl.editAplication);
-router2.delete('/:id', PlacesCtrl.deleteAplication);
+router.get('/', AplicationCtrl.getAplications);
+router.post('/', AplicationCtrl.createAplication);
+router.get('/:id', AplicationCtrl.getAplication);
+router.put('/:id', AplicationCtrl.editAplication);
+router.delete('/:id', AplicationCtrl.deleteAplication);
 
 
-  module.exports = router2;
+  module.exports = router;

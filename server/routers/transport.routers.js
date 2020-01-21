@@ -5,9 +5,9 @@ const transportCtrl = require('../controllers/transport.controllers');
 
 router.get('/', transportCtrl.getTransports);
 router.post('/', transportCtrl.getTransport);
-router.get('/', transportCtrl.createTransport);
-router.put('/', transportCtrl.editTransport);
-router.delete('/', transportCtrl.deleteTransport);
+router.get('/:id', transportCtrl.createTransport);
+router.put('/:id', transportCtrl.editTransport);
+router.delete('/:id', transportCtrl.deleteTransport);
 
 
   module.exports = router;

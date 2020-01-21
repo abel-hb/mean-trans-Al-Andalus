@@ -5,9 +5,9 @@ const PlacesCtrl = require('../controllers/places.controllers');
 
 router.get('/', PlacesCtrl.getPlaces);
 router.post('/', PlacesCtrl.createPlace);
-router.get('/', PlacesCtrl.getPlace);
-router.put('/', PlacesCtrl.editPlace);
-router.delete('/', PlacesCtrl.deletePlace);
+router.get('/:id', PlacesCtrl.getPlace);
+router.put('/:id', PlacesCtrl.editPlace);
+router.delete('/:id', PlacesCtrl.deletePlace);
 
 
   module.exports = router;
