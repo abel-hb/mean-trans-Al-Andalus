@@ -16,15 +16,7 @@ aplicationCtrl.getAplication = async (req, res) => {
     }
 
 }
-/*
-name: {type: String, required: true},
-    route: {type: String, required: true},
-    : {type: Array, required: true},
-    : {type: String, required: true},
-    start_date: {type: String, required: true},
-    : {type: String, required: true},
-    price: {type: String, required: true}
-    */
+
 aplicationCtrl.createAplication = async (req, res) => {
     try {
         const aplication = new Aplication({
