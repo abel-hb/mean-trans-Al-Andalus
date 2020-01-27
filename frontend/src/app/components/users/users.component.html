@@ -3,7 +3,45 @@
         <div class="col s5">
             <div class="card">
                 <div class="card-content">
-
+                    <form #userform="ngForm" (ngSubmit)="addUser(userform)">
+                        <div class="input-field col s12">
+                            <input type="text" name="name" #name="ngModel" [(ngModel)]
+                            ="userService.selectedUser.name" placeholder="Enter your Name">
+                        </div>
+                        <div class="input-field col s12">
+                            <input type="text" name="surname" #surname="ngModel" [(ngModel)]
+                            ="userService.selectedUser.surname" placeholder="Enter your Surname">
+                        </div>
+                        <div class="input-field col s12">
+                            <input type="text" name="dni" #dni="ngModel" [(ngModel)]
+                            ="userService.selectedUser.dni" placeholder="Enter your DNI">
+                        </div>
+                        <div class="input-field col s12">
+                            <input type="text" name="email" #email="ngModel" [(ngModel)]
+                            ="userService.selectedUser.email" placeholder="Enter your Email">
+                        </div>
+                        <div class="input-field col s12">
+                            <input type="number" name="tlf" #tlf="ngModel" [(ngModel)]
+                            ="userService.selectedUser.tlf" placeholder="Enter your Phone">
+                        </div>
+                        <div class="input-field col s12">
+                            <select>
+                                
+                            </select>
+                            <input type="s" name="transport" #transport="ngModel" [(ngModel)]
+                            ="userService.selectedUser.transport" placeholder="Enter your Transport">
+                        </div>
+                        <div class="input-field col s12">
+                            <input type="text" name="discharge_date" #discharge_date="ngModel" [(ngModel)]
+                            ="userService.selectedUser.discharge_date" placeholder="Enter your Discharge Date">
+                        </div>
+                        <div class="card-action">
+                            <div class="input-field col s12">
+                                <button class="btn" (click)="resetForm(userform)">Clean</button>
+                                <button class="btn right">Save</button>
+                            </div>
+                        </div>
+                    </form>
                 </div>
             </div>
         </div>

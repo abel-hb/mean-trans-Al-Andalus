@@ -1,9 +1,16 @@
 import { Injectable } from '@angular/core';
-
+import { HttpClient } from '@angular/common/http';
+import { Users } from '../models/users';
 @Injectable({
   providedIn: 'root'
 })
+
 export class UsersService {
 
-  constructor() { }
+  readonly URL_API = 'http://localhost:3500/api/users';
+  selectedUser: Users;
+  users: Users[];
+  constructor(private http: HttpClient) {
+    this.selectedUser = new Users();
+   }
 }
