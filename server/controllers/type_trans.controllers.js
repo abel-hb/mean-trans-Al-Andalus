@@ -23,7 +23,7 @@ typeTransCtrl.createtypeTran = async (req, res) => {
             number: req.body.number,
             name: req.body.name,
             route: req.body.route,
-            price: req.body.price,
+            price: req.body.price
         });
         await type.save();
         res.json({

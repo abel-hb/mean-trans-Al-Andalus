@@ -29,14 +29,14 @@ transportCtrl.createTransport = async (req, res) => {
             tlf: req.body.tlf,
             start_date: req.body.start_date,
             end_date: req.body.end_date,
-            price: req.body.price,
+            price: req.body.price
         });
         await transport.save();
         res.json({
             'status': 'Transport saved'
         });
     }  catch (error){
-        res.json({status: 'Transport not saved'});
+        res.json({status: 'Transport not saved',error:error});
     }  
     
 
