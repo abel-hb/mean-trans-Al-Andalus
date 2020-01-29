@@ -5,7 +5,7 @@ export class Users {
     dni: String;
     email: String;
     tlf: Number;
-    transport: Array;
+    transport: String;
     discharge_date: String;
 
     constructor(_id='', name='', surname='', dni='', email='', tlf=0, transport='', discharge_date='') {

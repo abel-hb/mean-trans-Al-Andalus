@@ -7,7 +7,7 @@ const UsersSchema = new Schema ({
     dni: {type: String, required: true},
     email: {type: String, required: true},
     tlf: {type: Number, required: true},
-    transport: {type: Array, required: true},
+    transport: {type: String, required: true},
     discharge_date: {type: String, required: true}
 });
 

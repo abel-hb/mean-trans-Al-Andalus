@@ -4,6 +4,8 @@
             <div class="card">
                 <div class="card-content">
                     <form #userform="ngForm" (ngSubmit)="addUser(userform)">
+                        <input type="hidden" name="_id" #_id="ngModel" [(ngModel)] ="userService.selectedUser._id">
+                    <div class="row">
                         <div class="input-field col s12">
                             <input type="text" name="name" #name="ngModel" [(ngModel)]
                             ="userService.selectedUser.name" placeholder="Enter your Name">
@@ -25,10 +27,7 @@
                             ="userService.selectedUser.tlf" placeholder="Enter your Phone">
                         </div>
                         <div class="input-field col s12">
-                            <select>
-                                
-                            </select>
-                            <input type="s" name="transport" #transport="ngModel" [(ngModel)]
+                            <input type="text" name="transport" #transport="ngModel" [(ngModel)]
                             ="userService.selectedUser.transport" placeholder="Enter your Transport">
                         </div>
                         <div class="input-field col s12">
@@ -41,12 +40,45 @@
                                 <button class="btn right">Save</button>
                             </div>
                         </div>
+                    </div>
                     </form>
                 </div>
             </div>
         </div>
         <div class="col s7">
-
+            <table>
+                <thead>
+                    <th>Name</th>
+                    <th>Surname</th>
+                    <th>DNI</th>
+                    <th>Email</th>
+                    <th>Phone</th>
+                    <th>Transport</th>
+                    <th>Date</th>
+                    <th>Operations</th>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let user of userService.users">
+                        <td>{{user.name}}</td>
+                        <td>{{user.surname}}</td>
+                        <td>{{user.dni}}</td>
+                        <td>{{user.email}}</td>
+                        <td>{{user.tlf}}</td>
+                        <td>{{user.transport}}</td>
+                        <td>{{user.discharge_date}}</td>
+                        <td>
+                            <a (click="editUsers(user)")>
+                                <i class="material-icons">edit</i>
+                            </a>
+                        </td>
+                        <td>
+                        <a (click="editUsers(user)")>
+                            <i class="material-icons">delete</i>
+                        </a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
         </div>
     </div>
 </div>
