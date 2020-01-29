@@ -15,19 +15,19 @@ export class UsersService {
     this.selectedUser = new Users();
    }
 
-   getUsers(){
+   getUser(){
      return this.http.get(this.URL_API);
    }
 
-   createrUsers(user: Users){
+   createrUser(user: Users){
      return this.http.post(this.URL_API, user);
    }
 
-   editUsers(user: Users){
+   editUser(user: Users){
      return this.http.put(this.URL_API+`/${users._id}`,user);
    }
 
-   deletedUsers(user: Users){
+   deletedUser(user: Users){
      return this.http.delete(this.URL_API+`/${_id}`);
    }
 }

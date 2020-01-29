@@ -21,7 +21,7 @@ export class UsersComponent implements OnInit {
 
 addUser(form: NgForm){
   if (form.value._id){
-    this.userService.editUsers(form.value)
+    this.userService.editUser(form.value)
     .subscribe(res => {
       console.log(res);
       this.resetForm(form);
@@ -29,7 +29,7 @@ addUser(form: NgForm){
       this.getUsers();
     });
   }else{
-    this.userService.createUser(form.value)
+    this.userService.createrUser(form.value)
     .subscribe(res => {
       console.log(res);
       this.resetForm(form);
@@ -42,7 +42,7 @@ addUser(form: NgForm){
 
 deleteUsers(_id: Users){
   if(confirm('Are you sure want delete it?')){
-    this.userService.deleteUsers(_id)
+    this.userService.deletedUser(_id)
     .subscribe(res => {
       this.getUsers();
       M.toast({html: 'User deleted successfully.'});
@@ -55,7 +55,7 @@ editUsers(user: Users){
 }
 
 getUsers(){
-  this.userService.getUsers()
+  this.userService.getUser()
   .subscribe(res => {
     this.userService.users = res as Users[];
     console.log(res);
