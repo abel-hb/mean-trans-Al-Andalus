@@ -24,10 +24,10 @@ export class UsersService {
    }
 
    editUser(user: Users){
-     return this.http.put(this.URL_API+`/${users._id}`,user);
+     return this.http.put(this.URL_API+`/${user._id}`,user);
    }
 
    deletedUser(user: Users){
-     return this.http.delete(this.URL_API+`/${_id}`);
+     return this.http.delete(this.URL_API+`/${user._id}`);
    }
 }

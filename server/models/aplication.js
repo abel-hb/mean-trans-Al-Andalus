@@ -4,7 +4,7 @@ const { Schema } = mongoose;
 const AplicationSchema = new Schema ({
     name: {type: String, required: true},
     route: {type: String, required: true},
-    transport: {type: Array, required: true},
+    transport: {type: String, required: true},
     travel_time: {type: String, required: true},
     start_date: {type: String, required: true},
     end_date: {type: String, required: true},
