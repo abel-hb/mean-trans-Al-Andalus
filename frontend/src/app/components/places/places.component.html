@@ -1,1 +1,76 @@
+<div class="container">
+    <div class="row">
+        <div class="col s5">
+            <div class="card">
+                <div class="card-content">
+                    <form #placeform="ngForm" (ngSubmit)="addPlaces(placeform)">
+                        <input type="hidden" name="_id" #_id="ngModel" [(ngModel)] ="placesServices.selectedPlace._id">
+                    <div class="row">
+                        <div class="input-field col s12">
+                            <input type="text" name="name" #name="ngModel" [(ngModel)]
+                            ="placesServices.selectedPlace.name" placeholder="Enter your Name">
+                        </div>
+                        <div class="input-field col s12">
+                            <input type="text" name="type" #type="ngModel" [(ngModel)]
+                            ="placesServices.selectedPlace.type" placeholder="Enter your Type">
+                        </div>
+                        <div class="input-field col s12">
+                            <input type="text" name="stop" #stop="ngModel" [(ngModel)]
+                            ="placesServices.selectedPlace.stop" placeholder="Enter your Stop">
+                        </div>
+                        <div class="input-field col s12">
+                            <input type="text" name="number" #number="ngModel" [(ngModel)]
+                            ="placesServices.selectedPlace.number" placeholder="Enter your Number">
+                        </div>
+                        <div class="input-field col s12">
+                            <input type="text" name="distance" #distance="ngModel" [(ngModel)]
+                            ="placesServices.selectedPlace.distance" placeholder="Enter your Distante KM">
+                        </div>
+                        <div class="card-action">
+                            <div class="input-field col s12">
+                                <button class="btn" (click)="resetForm(placeform)">Clean</button>
+                                <button class="btn right">Save</button>
+                            </div>
+                        </div>
+                    </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="col s7">
+            <table>
+                <thead>
+                    <th>Name</th>
+                    <th>Type</th>
+                    <th>Model</th>
+                    <th>Stop</th>
+                    <th>Number</th>
+                    <th>Distance Km</th>
+                    <th>Operations</th>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let place of placesServices.place">
+                        <td>{{place.name}}</td>
+                        <td>{{place.type}}</td>
+                        <td>{{place.stop}}</td>
+                        <td>{{place.number}}</td>
+                        <td>{{place.distance}}</td>
+                        <td>
+                            <a (click="editPlaces(place)")>
+                                <i class="material-icons">edit</i>
+                            </a>
+                        </td>
+                        <td>
+                        <a (click="deletePlaces(place,_id)")>
+                            <i class="material-icons">delete</i>
+                        </a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+
 <h4>places works!</h4>

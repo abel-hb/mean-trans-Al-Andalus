@@ -1,4 +1,9 @@
 import { Component, OnInit } from '@angular/core';
+import { PlacesServices } from '../../services/places.service';
+import { NgForm } from '@angular/forms';
+import { Places } from 'src/app/models/places';
+
+declare var M: any;
 
 @Component({
   selector: 'app-places',
@@ -7,9 +12,58 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PlacesComponent implements OnInit {
 
-  constructor() { }
+  constructor(private placesServices: PlacesServices) { }
 
   ngOnInit() {
+
+  }
+
+  addPlaces(form: NgForm){
+    if(form.value._id){
+      this.placesServices.createrPlace(form.value)
+      .subscribe(res => {
+        console.log(res);
+        this.resetForm(form);
+        M.toast({html: 'Places updated successfully.'});
+        this.getPlaces();
+      });
+    }else{
+      this.placesServices.createrPlace(form.value)
+      .subscribe(res => {
+        console.log(res);
+        this.resetForm(form);
+        M.toast({html: 'Places saved successfully.'});
+      });
+    }
+  }
+
+  deletePlaces(_id: Places){
+    if(confirm('Are you sure want delele it')){
+      this.placesServices.deletedPlace(_id)
+      .subscribe(res => {
+        this.getPlaces();
+        M.toast({html: 'Places deleted successfully.'});
+      });
+    }
+  }
+
+  editPlaces(place: Places){
+    this.placesServices.selectedPlace = place;
+  }
+
+  getPlaces(){
+    this.placesServices.getPlace()
+    .subscribe(res => {
+      this.placesServices.place = res as Places[];
+      console.log(res);
+    })
+  }
+
+  resetForm(form: NgForm){
+    if(form){
+      form.reset();
+      this.placesServices.selectedPlace = new Places();
+    }
   }
 
 }

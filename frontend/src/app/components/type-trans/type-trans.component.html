@@ -1,1 +1,67 @@
+<div class="container">
+    <div class="row">
+        <div class="col s5">
+            <div class="card">
+                <div class="card-content">
+                    <form #typeTrans form="ngForm" (ngSubmit)="addTypeTrans(typeTrans)">
+                        <input type="hidden" name="_id" #_id="ngModel" [(ngModel)] ="typeTransServices.selectedTypeTrans._id">
+                    <div class="row">
+                        <div class="input-field col s12">
+                            <input type="number" name="number" #number="ngModel" [(ngModel)]
+                            ="typeTransServices.selectedTypeTrans.number" placeholder="Enter your Number">
+                        </div>
+                        <div class="input-field col s12">
+                            <input type="text" name="name" #name="ngModel" [(ngModel)]
+                            ="typeTransServices.selectedTypeTrans.name" placeholder="Enter your Name">
+                        </div>
+                        <div class="input-field col s12">
+                            <input type="text" name="route" #route="ngModel" [(ngModel)]
+                            ="typeTransServices.selectedTypeTrans.route" placeholder="Enter your Router">
+                        </div>
+                        <div class="input-field col s12">
+                            <input type="text" name="price" #price="ngModel" [(ngModel)]
+                            ="typeTransServices.selectedTypeTrans.price" placeholder="Enter your Price">
+                        </div>
+                        <div class="card-action">
+                            <div class="input-field col s12">
+                                <button class="btn" (click)="resetForm(typeTrans)">Clean</button>
+                                <button class="btn right">Save</button>
+                            </div>
+                        </div>
+                    </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="col s7">
+            <table>
+                <thead>
+                    <th>Number</th>
+                    <th>Name</th>
+                    <th>Router</th>
+                    <th>Price</th>
+                    <th>Operations</th>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let type of typeTransServices.typeTrans">
+                        <td>{{type.number}}</td>
+                        <td>{{type.name}}</td>
+                        <td>{{type.route}}</td>
+                        <td>{{type.price}}</td>
+                        <td>
+                            <a (click="editTypeTrans(type)")>
+                                <i class="material-icons">edit</i>
+                            </a>
+                        </td>
+                        <td>
+                        <a (click="deleteTypeTrans(type,_id)")>
+                            <i class="material-icons">delete</i>
+                        </a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
 <h2>type-trans works!</h2>

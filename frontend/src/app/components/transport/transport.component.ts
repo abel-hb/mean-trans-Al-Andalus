@@ -1,4 +1,10 @@
 import { Component, OnInit } from '@angular/core';
+import { TransportService } from '../../services/transport.service';
+import { NgForm } from '@angular/forms';
+import { Transport } from 'src/app/models/transport';
+
+
+declare var M: any;
 
 @Component({
   selector: 'app-transport',
@@ -7,9 +13,58 @@ import { Component, OnInit } from '@angular/core';
 })
 export class TransportComponent implements OnInit {
 
-  constructor() { }
+  constructor(private transportService: TransportService) { }
 
   ngOnInit() {
+    this.getTransports();
+  }
+
+  addTransport(form: NgForm){
+    if (form.value._id){
+      this.transportService.createrTransport(form.value)
+      .subscribe(res => {
+        console.log(res);
+        this.resetForm(form);
+        M.toast({html: 'Transport updated successfully.'});
+        this.getTransports();
+      });
+    }else{
+      this.transportService.createrTransport(form.value)
+      .subscribe(res => {
+        console.log(res);
+        this.resetForm(form);
+        M.toast({html: 'Transport saved successfully.'});
+      });
+    }
+  }
+
+  deleteTransports(_id: Transport){
+    if(confirm('Are you sure want delele it')){
+      this.transportService.deletedTransport(_id)
+      .subscribe(res => {
+        this.getTransports();
+        M.toast({html: 'Transport deleted successfully.'});
+      });
+    }
+  }
+
+  editTransports(transport: Transport){
+    this.transportService.selectedTransport = transport;
+  }
+
+  getTransports(){
+    this.transportService.getTransport()
+    .subscribe(res => {
+      this.transportService.transport = res as Transport[];
+      console.log(res);
+    })
+  }
+
+  resetForm(form: NgForm){
+    if(form){
+      form.reset();
+      this.transportService.selectedTransport = new Transport();
+    }
   }
 
 }

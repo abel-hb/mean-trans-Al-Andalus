@@ -1,1 +1,85 @@
+<div class="container">
+    <div class="row">
+        <div class="col s5">
+            <div class="card">
+                <div class="card-content">
+                    <form #transportform="ngForm" (ngSubmit)="addTransport(transportform)">
+                        <input type="hidden" name="_id" #_id="ngModel" [(ngModel)] ="transportService.selectedTransport._id">
+                    <div class="row">
+                        <div class="input-field col s12">
+                            <input type="text" name="number" #number="ngModel" [(ngModel)]
+                            ="transportService.selectedTransport.number" placeholder="Enter your Name">
+                        </div>
+                        <div class="input-field col s12">
+                            <input type="text" name="brand" #brand="ngModel" [(ngModel)]
+                            ="transportService.selectedTransport.brand" placeholder="Enter your Surname">
+                        </div>
+                        <div class="input-field col s12">
+                            <input type="text" name="model" #model="ngModel" [(ngModel)]
+                            ="transportService.selectedTransport.model" placeholder="Enter your DNI">
+                        </div>
+                        <div class="input-field col s12">
+                            <input type="text" name="enrollment" #enrollment="ngModel" [(ngModel)]
+                            ="transportService.selectedTransport.enrollment" placeholder="Enter your Email">
+                        </div>
+                        <div class="input-field col s12">
+                            <input type="text" name="start_date" #start_date="ngModel" [(ngModel)]
+                            ="transportService.selectedTransport.start_date" placeholder="Enter your Phone">
+                        </div>
+                        <div class="input-field col s12">
+                            <input type="text" name="end_date" #end_date="ngModel" [(ngModel)]
+                            ="transportService.selectedTransport.end_date" placeholder="Enter your Discharge Date">
+                        </div>
+                        <div class="input-field col s12">
+                            <input type="text" name="price" #price="ngModel" [(ngModel)]
+                            ="transportService.selectedTransport.price" placeholder="Enter your Discharge Date">
+                        </div>
+                        <div class="card-action">
+                            <div class="input-field col s12">
+                                <button class="btn" (click)="resetForm(transportform)">Clean</button>
+                                <button class="btn right">Save</button>
+                            </div>
+                        </div>
+                    </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="col s7">
+            <table>
+                <thead>
+                    <th>Number</th>
+                    <th>Brand</th>
+                    <th>Model</th>
+                    <th>Enrollment</th>
+                    <th>Start Date</th>
+                    <th>End Date</th>
+                    <th>Price</th>
+                    <th>Operations</th>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let transport of transportService.transport">
+                        <td>{{transport.number}}</td>
+                        <td>{{transport.brand}}</td>
+                        <td>{{transport.model}}</td>
+                        <td>{{transport.enrollment}}</td>
+                        <td>{{transport.start_date}}</td>
+                        <td>{{transport.end_date}}</td>
+                        <td>{{transport.price}}</td>
+                        <td>
+                            <a (click="editTransports(transport)")>
+                                <i class="material-icons">edit</i>
+                            </a>
+                        </td>
+                        <td>
+                        <a (click="deleteTransports(transport,_id)")>
+                            <i class="material-icons">delete</i>
+                        </a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
 <h3>transport works!</h3>

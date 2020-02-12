@@ -1,5 +1,6 @@
 export class Transport {
-       number: Number;
+        _id: String;
+        number: Number;
         brand: String;
         model: String;
         enrollment: String;
@@ -7,7 +8,8 @@ export class Transport {
         end_date: String;
         price: String;
 
-    constructor(number=0 ,brand='',model='' ,enrollment='', start_date='',end_date='',price='') {
+    constructor(_id='',number=0 ,brand='',model='' ,enrollment='', start_date='',end_date='',price='') {
+        this._id = _id;
         this.number = number;
         this.brand = brand;
         this.model = model;

@@ -1,5 +1,5 @@
 export class Aplication {
-
+    _id: String;
     name: String;
     route: String;
     transport: String;
@@ -8,7 +8,8 @@ export class Aplication {
     end_date: String;
     price: String;
 
-    constructor(name='', route='', transport='', travel_time='', start_date='', end_date='', price='') {
+    constructor(_id='',name='', route='', transport='', travel_time='', start_date='', end_date='', price='') {
+        this._id = _id;
         this.name = name;
         this.route = route;
         this.transport = transport;
