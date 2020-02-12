@@ -10,6 +10,12 @@ import { TransportComponent } from './components/transport/transport.component';
 import { AplicationComponent } from './components/aplication/aplication.component';
 import { PlacesComponent } from './components/places/places.component';
 import { FormsModule } from '@angular/forms';
+import { TypeTransService } from './services/type-trans.service';
+import { TransportService } from './services/transport.service';
+import { UsersService } from './services/users.service';
+import { PlacesServices } from './services/places.service';
+import { AplicationService } from './services/aplication.service';
+
 import { HttpClientModule } from '@angular/common/http';
 
 
@@ -28,7 +34,7 @@ import { HttpClientModule } from '@angular/common/http';
     FormsModule,
     HttpClientModule
   ],
-  providers: [],
+  providers: [TypeTransService, TransportService,UsersService,PlacesServices, AplicationService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
