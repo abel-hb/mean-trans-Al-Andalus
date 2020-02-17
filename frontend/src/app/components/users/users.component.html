@@ -67,12 +67,12 @@
                         <td>{{user.transport}}</td>
                         <td>{{user.discharge_date}}</td>
                         <td>
-                            <a (click="editUsers(user)")>
+                            <a (click)="editUsers(user)">
                                 <i class="material-icons">edit</i>
                             </a>
                         </td>
                         <td>
-                        <a (click="deleteUsers(user,_id)")>
+                        <a (click)="deleteUsers(user,_id)">
                             <i class="material-icons">delete</i>
                         </a>
                         </td>

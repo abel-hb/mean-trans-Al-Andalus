@@ -1,1 +1,86 @@
+<div class="container">
+    <div class="row">
+        <div class="col s5">
+            <div class="card">
+                <div class="card-content">
+                    <form #aplicationform="ngForm" (ngSubmit)="addAplications(aplicationform)">
+                        <input type="hidden" name="_id" #_id="ngModel" [(ngModel)] ="aplicationServices.selectedAplication._id">
+                    <div class="row">
+                        <div class="input-field col s12">
+                            <input type="text" name="name" #name="ngModel" [(ngModel)]
+                            ="aplicationServices.selectedAplication.name" placeholder="Enter your Name">
+                        </div>
+                        <div class="input-field col s12">
+                            <input type="text" name="route" #route="ngModel" [(ngModel)]
+                            ="aplicationServices.selectedAplication.route" placeholder="Enter your Router">
+                        </div>
+                        <div class="input-field col s12">
+                            <input type="text" name="transport" #transport="ngModel" [(ngModel)]
+                            ="aplicationServices.selectedAplication.transport" placeholder="Enter your transport">
+                        </div>
+                        <div class="input-field col s12">
+                            <input type="text" name="travel_time" #travel_time="ngModel" [(ngModel)]
+                            ="aplicationServices.selectedAplication.travel_time" placeholder="Enter your travel_time">
+                        </div>
+                        <div class="input-field col s12">
+                            <input type="text" name="start_date" #start_date="ngModel" [(ngModel)]
+                            ="aplicationServices.selectedAplication.start_date" placeholder="Enter your Start Date">
+                        </div>
+                        <div class="input-field col s12">
+                            <input type="text" name="end_date" #end_date="ngModel" [(ngModel)]
+                            ="aplicationServices.selectedAplication.end_date" placeholder="Enter your End Date">
+                        </div>
+                        <div class="input-field col s12">
+                            <input type="text" name="price" #price="ngModel" [(ngModel)]
+                            ="aplicationServices.selectedAplication.price" placeholder="Enter your Price">
+                        </div>
+                        <div class="card-action">
+                            <div class="input-field col s12">
+                                <button class="btn" (click)="resetForm(aplicationform)">Clean</button>
+                                <button class="btn right">Save</button>
+                            </div>
+                        </div>
+                    </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="col s7">
+            <table>
+                <thead>
+                    <th>Name</th>
+                    <th>Router</th>
+                    <th>Transport</th>
+                    <th>Travel Time</th>
+                    <th>Star Date</th>
+                    <th>End Date</th>
+                    <th>Price</th>
+                    <th>Operations</th>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let aplication of aplicationServices.aplication">
+                        <td>{{aplication.name}}</td>
+                        <td>{{aplication.route}}</td>
+                        <td>{{aplication.transport}}</td>
+                        <td>{{aplication.travel_time}}</td>
+                        <td>{{aplication.start_date}}</td>
+                        <td>{{aplication.end_date}}</td>
+                        <td>{{aplication.price}}</td>
+                        <td>
+                            <a (click)="editAplications(aplication)">
+                                <i class="material-icons">edit</i>
+                            </a>
+                        </td>
+                        <td>
+                        <a (click)="deleteAplications(aplication,_id)">
+                            <i class="material-icons">delete</i>
+                        </a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
 <h5>aplication works!</h5>

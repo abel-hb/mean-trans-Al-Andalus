@@ -42,7 +42,6 @@
                 <thead>
                     <th>Name</th>
                     <th>Type</th>
-                    <th>Model</th>
                     <th>Stop</th>
                     <th>Number</th>
                     <th>Distance Km</th>
@@ -56,12 +55,12 @@
                         <td>{{place.number}}</td>
                         <td>{{place.distance}}</td>
                         <td>
-                            <a (click="editPlaces(place)")>
+                            <a (click)="editPlaces(place)">
                                 <i class="material-icons">edit</i>
                             </a>
                         </td>
                         <td>
-                        <a (click="deletePlaces(place,_id)")>
+                        <a (click)="deletePlaces(place,_id)">
                             <i class="material-icons">delete</i>
                         </a>
                         </td>
@@ -71,6 +70,4 @@
         </div>
     </div>
 </div>
-
-
 <h4>places works!</h4>

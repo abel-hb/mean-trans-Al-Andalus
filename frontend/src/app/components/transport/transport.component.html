@@ -8,31 +8,31 @@
                     <div class="row">
                         <div class="input-field col s12">
                             <input type="text" name="number" #number="ngModel" [(ngModel)]
-                            ="transportService.selectedTransport.number" placeholder="Enter your Name">
+                            ="transportService.selectedTransport.number" placeholder="Enter your Number">
                         </div>
                         <div class="input-field col s12">
                             <input type="text" name="brand" #brand="ngModel" [(ngModel)]
-                            ="transportService.selectedTransport.brand" placeholder="Enter your Surname">
+                            ="transportService.selectedTransport.brand" placeholder="Enter your Brand">
                         </div>
                         <div class="input-field col s12">
                             <input type="text" name="model" #model="ngModel" [(ngModel)]
-                            ="transportService.selectedTransport.model" placeholder="Enter your DNI">
+                            ="transportService.selectedTransport.model" placeholder="Enter your Model">
                         </div>
                         <div class="input-field col s12">
                             <input type="text" name="enrollment" #enrollment="ngModel" [(ngModel)]
-                            ="transportService.selectedTransport.enrollment" placeholder="Enter your Email">
+                            ="transportService.selectedTransport.enrollment" placeholder="Enter your Enrollment">
                         </div>
                         <div class="input-field col s12">
                             <input type="text" name="start_date" #start_date="ngModel" [(ngModel)]
-                            ="transportService.selectedTransport.start_date" placeholder="Enter your Phone">
+                            ="transportService.selectedTransport.start_date" placeholder="Enter your Start Date">
                         </div>
                         <div class="input-field col s12">
                             <input type="text" name="end_date" #end_date="ngModel" [(ngModel)]
-                            ="transportService.selectedTransport.end_date" placeholder="Enter your Discharge Date">
+                            ="transportService.selectedTransport.end_date" placeholder="Enter your End Date">
                         </div>
                         <div class="input-field col s12">
                             <input type="text" name="price" #price="ngModel" [(ngModel)]
-                            ="transportService.selectedTransport.price" placeholder="Enter your Discharge Date">
+                            ="transportService.selectedTransport.price" placeholder="Enter your Price">
                         </div>
                         <div class="card-action">
                             <div class="input-field col s12">
@@ -67,12 +67,12 @@
                         <td>{{transport.end_date}}</td>
                         <td>{{transport.price}}</td>
                         <td>
-                            <a (click="editTransports(transport)")>
+                            <a (click)="editTransports(transport)">
                                 <i class="material-icons">edit</i>
                             </a>
                         </td>
                         <td>
-                        <a (click="deleteTransports(transport,_id)")>
+                        <a (click)="deleteTransports(transport,_id)">
                             <i class="material-icons">delete</i>
                         </a>
                         </td>

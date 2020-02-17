@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { PlacesServices } from '../../services/places.service';
+import { PlacesService } from '../../services/places.service';
 import { NgForm } from '@angular/forms';
 import { Places } from 'src/app/models/places';
 
@@ -12,10 +12,10 @@ declare var M: any;
 })
 export class PlacesComponent implements OnInit {
 
-  constructor(private placesServices: PlacesServices) { }
+  constructor(private placesServices: PlacesService) { }
 
   ngOnInit() {
-
+    this.getPlaces();
   }
 
   addPlaces(form: NgForm){

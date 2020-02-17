@@ -3,7 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { Places } from '../models/places';
 
 @Injectable()
-export class PlacesServices {
+export class PlacesService {
   
   readonly URL_API = 'http://localhost:3500/api/places';
   selectedPlace: Places;
