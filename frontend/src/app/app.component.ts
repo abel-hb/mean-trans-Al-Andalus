@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Users } from './models/users';
 
 @Component({
   selector: 'app-root',
@@ -6,5 +7,12 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'frontend';
+   public title = 'frontend';
+   public user: Users;
+   public identity;
+   public token;
+
+   constructor(){
+     this.user = new Users('','','','','ROLER_USER','','',0,'','','');
+   }
 }

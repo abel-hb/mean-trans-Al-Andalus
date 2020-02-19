@@ -1,5 +1,6 @@
 const User = require('../models/users');
-
+const bcrypt = require('bcrypt-nodejs');
+const jwtServices = require('../services/jwt.services');
 const usersCtrl = {};
 
 usersCtrl.getUsers = async (req, res) => {
@@ -16,26 +17,95 @@ usersCtrl.getUser = async (req, res) => {
     }
 }
 
-usersCtrl.createUser = async (req, res) => {
-try {
-    const user = new User({
-        name: req.body.name,
-        surname: req.body.surname,
-        dni: req.body.dni,
-        email: req.body.email,
-        tlf: req.body.tlf,
-        transport: req.body.transport,
-        discharge_date: req.body.discharge_date,
-    });
-    await user.save();
-    res.json({
-        'status': 'User saved'
-    });
-}  catch (error){
-    res.json({status: 'User not saved'});
-}  
+usersCtrl.saveUser = (req, res) =>{
+    const user  =new User();
+    var params = req.body;
 
+    user.name = params.name;
+    user.surname = params.surname;
+    user.dni = params.dni;
+    user.role = 'ROLE_USER';
+    user.email = params.email;
+    user.tlf = params.tlf;
+    user.transport = params.transport;
+    user.discharge_date = params.discharge_date;
+    user.image = 'null';
+    console.log(user.name);
+    console.log(user.surname);
+    console.log(user.email);
+
+    if (params.password){
+        bcrypt.hash(params.password,null,null,function(err,hash) {
+            user.password = hash;
+            if (user.name != null && user.surname != null && user.email != null){
+                //Save new user
+                user.save()
+                    .then(user => {
+                        res.status(200).send({user:user});
+                    })
+                    .catch(err => {
+                        res.status(500).send({message:err});
+                    });
+            }else{
+                res.status(200).send({message: 'Fill out form.'});
+            }
+        });
+    }else{
+        res.status(200).send({message: 'Enter the pass'});
+    }
 };
+
+
+usersCtrl.loginUser = (req, res) => {
+    var params = req.body;
+    var email = params.email;
+    var password = params.password;
+
+    User.findOne({email: email.toLowerCase()}, (err, user) => {
+        if(err){
+            res.status(500).send({message: 'Error to server'});
+        }else{
+            if(!user){
+                res.status(404).send({message: 'User not found.'});
+            }else{
+                bcrypt.compare(password,user.password, (err, check) => {
+                    if(check){
+                        if(params.gethash){
+                            // Here return user token crypt
+                            res.status(200).send({token: jwtServices.createToken(user)});
+                        }else{
+                            res.status(200).send({user});
+                        }
+                    }else{
+                        res.status(404).send({message: 'User not login.'});
+                    }
+                });
+            }
+        }
+    });
+}
+
+
+// usersCtrl.createUser = async (req, res) => {
+// try {
+//     const user = new User({
+//         name: req.body.name,
+//         surname: req.body.surname,
+//         dni: req.body.dni,
+//         email: req.body.email,
+//         tlf: req.body.tlf,
+//         transport: req.body.transport,
+//         discharge_date: req.body.discharge_date,
+//     });
+//     await user.save();
+//     res.json({
+//         'status': 'User saved'
+//     });
+// }  catch (error){
+//     res.json({status: 'User not saved'});
+// }  
+
+// };
 
 usersCtrl.editUser = async (req, res) =>{
 try {

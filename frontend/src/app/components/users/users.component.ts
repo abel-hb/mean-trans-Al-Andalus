@@ -65,7 +65,7 @@ getUsers(){
   resetForm(form: NgForm){
     if(form){
       form.reset();
-      this.userService.selectedUser = new Users();
+      this.userService.selectedUser = new Users('','','','','ROLER_USER','','',0,'','','');
     }
   }
 }

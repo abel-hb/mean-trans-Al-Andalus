@@ -1,4 +1,16 @@
-<div>
+<div *ngIf="identity">
+  <h1>Myapp</h1>
   <app-menu></app-menu>
   <router-outlet></router-outlet>
+</div>
+
+<div *ngIf="!identity">
+  <div class="row">
+      <div class="col s6">
+        <h2>Login</h2>
+      </div>
+      <div class="col s6">
+        <h2>Register</h2>
+      </div>
+  </div>
 </div>

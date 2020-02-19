@@ -12,7 +12,7 @@ export class UsersService {
   users: Users[];
 
   constructor(private http: HttpClient) {
-    this.selectedUser = new Users();
+    this.selectedUser = new Users('','','','','ROLER_USER','','',0,'','','');
    }
 
    getUser(){
