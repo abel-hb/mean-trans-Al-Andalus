@@ -28,7 +28,7 @@ usersCtrl.saveUser = (req, res) =>{
     user.tlf = params.tlf;
     user.transport = params.transport;
     user.discharge_date = params.discharge_date;
-    user.role = 'ROLE_ADMIN';
+    user.role = 'ROLE_USER';
     user.image = 'null';
     if (params.password){
         bcrypt.hash(params.password,null,null,(err,hash) => {

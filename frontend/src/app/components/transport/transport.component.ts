@@ -23,7 +23,6 @@ export class TransportComponent implements OnInit {
     if (form.value._id){
       this.transportService.createrTransport(form.value)
       .subscribe(res => {
-        console.log(res);
         this.resetForm(form);
         M.toast({html: 'Transport updated successfully.'});
         this.getTransports();
@@ -31,7 +30,6 @@ export class TransportComponent implements OnInit {
     }else{
       this.transportService.createrTransport(form.value)
       .subscribe(res => {
-        console.log(res);
         this.resetForm(form);
         M.toast({html: 'Transport saved successfully.'});
       });
@@ -56,7 +54,6 @@ export class TransportComponent implements OnInit {
     this.transportService.getTransport()
     .subscribe(res => {
       this.transportService.transport = res as Transport[];
-      console.log(res);
     })
   }
 

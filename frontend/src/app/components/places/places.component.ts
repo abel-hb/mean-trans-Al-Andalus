@@ -22,7 +22,6 @@ export class PlacesComponent implements OnInit {
     if(form.value._id){
       this.placesServices.createrPlace(form.value)
       .subscribe(res => {
-        console.log(res);
         this.resetForm(form);
         M.toast({html: 'Places updated successfully.'});
         this.getPlaces();
@@ -30,7 +29,6 @@ export class PlacesComponent implements OnInit {
     }else{
       this.placesServices.createrPlace(form.value)
       .subscribe(res => {
-        console.log(res);
         this.resetForm(form);
         M.toast({html: 'Places saved successfully.'});
       });
@@ -55,7 +53,6 @@ export class PlacesComponent implements OnInit {
     this.placesServices.getPlace()
     .subscribe(res => {
       this.placesServices.place = res as Places[];
-      console.log(res);
     })
   }
 

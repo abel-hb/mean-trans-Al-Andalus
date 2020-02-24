@@ -23,7 +23,6 @@ addUser(form: NgForm){
   if (form.value._id){
     this.userService.editUser(form.value)
     .subscribe(res => {
-      console.log(res);
       this.resetForm(form);
       M.toast({html: 'User updated successfully.'});
       this.getUsers();
@@ -31,13 +30,11 @@ addUser(form: NgForm){
   }else{
     this.userService.createrUser(form.value)
     .subscribe(res => {
-      console.log(res);
       this.resetForm(form);
       M.toast({html: 'User saved successfully.'});
       this.getUsers();
     });
   }
-  // console.log(form.value);
 }
 
 deleteUsers(_id: Users){
@@ -58,7 +55,6 @@ getUsers(){
   this.userService.getUser()
   .subscribe(res => {
     this.userService.users = res as Users[];
-    console.log(res);
   })
 }
 

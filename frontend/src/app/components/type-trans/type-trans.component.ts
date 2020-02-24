@@ -22,7 +22,6 @@ export class TypeTransComponent implements OnInit {
     if (form.value._id){
       this.typeTransServices.editTypeTran(form.value)
       .subscribe(res => {
-        console.log(res);
         this.resetForm(form);
         M.toast({html: 'Type Trans updated successfully.'});
         this.getTypeTrans();
@@ -30,7 +29,6 @@ export class TypeTransComponent implements OnInit {
     }else{
       this.typeTransServices.createrTypeTran(form.value)
       .subscribe(res => {
-        console.log(res);
         M.toast({html: 'Type Trans saved successfully.'});
         this.getTypeTrans();
       });
@@ -56,7 +54,6 @@ export class TypeTransComponent implements OnInit {
     this.typeTransServices.getTypeTran()
     .subscribe(res => {
       this.typeTransServices.typeTrans = res as TypeTrans[];
-      console.log(res);
     })
   }
 

@@ -22,7 +22,6 @@ export class AplicationComponent implements OnInit {
     if(form.value._id){
       this.aplicationServices.createrAplication(form.value)
       .subscribe(res => {
-        console.log(res);
         this.resetForm(form);
         M.toast({html: 'Aplication updated successfully.'});
         this.getAplications();
@@ -30,7 +29,6 @@ export class AplicationComponent implements OnInit {
     }else{
       this.aplicationServices.createrAplication(form.value)
       .subscribe(res => {
-        console.log(res);
         this.resetForm(form);
         M.toast({html: 'Aplication saved successfully.'});
       });
@@ -55,7 +53,6 @@ export class AplicationComponent implements OnInit {
     this.aplicationServices.getAplication()
     .subscribe(res => {
       this.aplicationServices.aplication = res as Aplication[];
-      console.log(res);
     })
   }
 
