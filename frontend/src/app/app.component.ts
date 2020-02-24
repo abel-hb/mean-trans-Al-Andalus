@@ -1,9 +1,11 @@
+// Import the resources
 import { Component } from '@angular/core';
 import { Users } from './models/users';
 import { UsersService } from './services/users.service';
 import { NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
 
+// variable
 declare var M: any;
 
 @Component({
@@ -12,6 +14,7 @@ declare var M: any;
   styleUrls: ['./app.component.css'],
   providers: [UsersService]
 })
+// Class and methods
 export class AppComponent {
    public title = 'frontend';
    public user: Users;
@@ -42,7 +45,6 @@ export class AppComponent {
   }
 
    public onSubmitLogin(form: NgForm) {
-     // console.log(this.user);
      const params = {
        email: form.value.email,
        password: form.value.password,

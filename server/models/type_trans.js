@@ -1,6 +1,7 @@
 const mongoose = require('mongoose');
 const { Schema } = mongoose;
 
+// We created the schema
 const Type_TransSchema = new Schema ({
     number: {type: Number, required: true},
     name: {type: String, required: true},

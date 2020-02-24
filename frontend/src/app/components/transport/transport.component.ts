@@ -11,6 +11,8 @@ declare var M: any;
   templateUrl: './transport.component.html',
   styleUrls: ['./transport.component.css']
 })
+
+// Class and methods
 export class TransportComponent implements OnInit {
 
   constructor(private transportService: TransportService) { }

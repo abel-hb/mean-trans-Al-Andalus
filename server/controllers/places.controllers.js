@@ -2,6 +2,7 @@ const Places = require('../models/places');
 
 const PlacesCtrl = {};
 
+// Methods of the controllers
 PlacesCtrl.getPlaces = async (req,res) => {
     const places = await Places.find();
     res.json(places);

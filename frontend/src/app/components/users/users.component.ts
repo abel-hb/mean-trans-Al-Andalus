@@ -11,6 +11,8 @@ declare var M: any;
   styleUrls: ['./users.component.css'],
   providers: [UsersService]
 })
+
+// Class and methods
 export class UsersComponent implements OnInit {
 
   constructor(private userService: UsersService) { }

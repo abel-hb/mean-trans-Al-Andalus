@@ -1,3 +1,4 @@
+// Models
 export class Places {
     _id: String;
     name: String;

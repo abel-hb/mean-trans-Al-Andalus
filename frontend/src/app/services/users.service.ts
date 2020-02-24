@@ -7,6 +7,7 @@ import { GLOBAL } from './global';
 
 @Injectable()
 
+// Class and methods
 export class UsersService {
 
   readonly URL_API = 'http://localhost:3500/api/users';

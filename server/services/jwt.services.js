@@ -1,10 +1,13 @@
+// Import the resources
 const jwt = require('jwt-simple');
 const moment = require('moment');
 
+//variables
 var secret = 'clave_secreta_app';
 
 const jwtService = {};
 
+//Creation of the token
 jwtService.createToken = (user) =>{
     var payload = {
         sub: user._id,

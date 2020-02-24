@@ -2,6 +2,7 @@ const typeTrans = require('../models/type_trans');
 
 const typeTransCtrl = {};
 
+// Methods of the controllers
 typeTransCtrl.gettypeTrans = async (req,res) => {
     const type = await typeTrans.find();
     res.json(type);

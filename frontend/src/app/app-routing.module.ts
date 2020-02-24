@@ -8,7 +8,7 @@ import { TransportComponent } from './components/transport/transport.component';
 import { PlacesComponent } from './components/places/places.component';
 import { AplicationComponent } from './components/aplication/aplication.component';
 
-
+// Class and methods
 const routes: Routes = [
   {path: '', component: HomeComponent},
   {path: 'home', component: HomeComponent},

@@ -1,9 +1,10 @@
+// Import the resources
 const express = require('express');
 const router = express.Router();
 const transportCtrl = require('../controllers/transport.controllers');
 const md_auth = require('../middleware/authenticated');
 
-
+// Router
 router.get('/',md_auth.ensureAuth, transportCtrl.getTransports);
 router.post('/',md_auth.ensureAuth, transportCtrl.createTransport);
 router.get('/:id',md_auth.ensureAuth, transportCtrl.getTransport);

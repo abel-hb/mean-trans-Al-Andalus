@@ -10,6 +10,8 @@ declare var M: any;
   templateUrl: './places.component.html',
   styleUrls: ['./places.component.css']
 })
+
+// Class and methods
 export class PlacesComponent implements OnInit {
 
   constructor(private placesServices: PlacesService) { }

@@ -1,6 +1,8 @@
+// Import the resources
 const mongoose = require('mongoose');
 const { Schema } = mongoose;
 
+// We created the schema
 const UsersSchema = new Schema ({
     name: {type: String, required: true},
     surname: {type: String, required: true},

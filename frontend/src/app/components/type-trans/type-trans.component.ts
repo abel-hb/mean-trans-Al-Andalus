@@ -10,6 +10,8 @@ declare var M: any;
   templateUrl: './type-trans.component.html',
   styleUrls: ['./type-trans.component.css']
 })
+
+// Class and methods
 export class TypeTransComponent implements OnInit {
 
   constructor(private typeTransServices: TypeTransService) { }

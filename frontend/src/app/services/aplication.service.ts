@@ -6,6 +6,7 @@ import { HttpHeaders } from '@angular/common/http';
 
 
 @Injectable()
+// Class and methods
 export class AplicationService {
   
   readonly URL_API = 'http://localhost:3500/api/aplication';

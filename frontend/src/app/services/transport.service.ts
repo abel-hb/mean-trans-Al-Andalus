@@ -6,6 +6,8 @@ import { HttpHeaders } from '@angular/common/http';
 
 
 @Injectable()
+
+// Class and methods
 export class TransportService {
   
   readonly URL_API = 'http://localhost:3500/api/transport';

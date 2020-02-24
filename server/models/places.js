@@ -1,6 +1,7 @@
 const mongoose = require('mongoose');
 const { Schema } = mongoose;
 
+// We created the schema
 const PlacesSchema = new Schema ({
     name: {type: String, required: true},
     type: {type: String, required: true},

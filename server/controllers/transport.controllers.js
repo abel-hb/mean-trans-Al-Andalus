@@ -2,6 +2,7 @@ const Transport = require('../models/transport');
 
 const transportCtrl = {};
 
+// Methods of the controllers
 transportCtrl.getTransports = async (req,res) => {
     const transports = await Transport.find();
     res.json(transports);

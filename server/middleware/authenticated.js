@@ -1,10 +1,11 @@
+// Import the resources
 const jwt = require('jwt-simple');
 const moment = require('moment');
-
+// Variable
 var secret = 'clave_secreta_app';
 
 const authenticate = {};
-
+// Function to securitize
 authenticate.ensureAuth = (req, res, next) => {
     if(!req.headers.authorization){
         res.status(403).send({message: 'Resquest without headers authorization'});

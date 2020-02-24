@@ -2,6 +2,7 @@ const Aplication = require('../models/aplication');
 
 const aplicationCtrl = {};
 
+// Methods of the controllers
 aplicationCtrl.getAplications = async (req,res) => {
     const aplication = await Aplication.find();
     res.json(aplication);

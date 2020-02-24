@@ -6,6 +6,8 @@ import { UsersService } from '../../services/users.service';
   templateUrl: './menu.component.html',
   styleUrls: ['./menu.component.css']
 })
+
+// Class and methods
 export class MenuComponent implements OnInit {
 
   public token = null;

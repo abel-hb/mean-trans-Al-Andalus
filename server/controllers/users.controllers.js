@@ -1,8 +1,10 @@
+// Import the resources
 const User = require('../models/users');
 const bcrypt = require('bcrypt-nodejs');
 const jwtServices = require('../services/jwt.services');
 const usersCtrl = {};
 
+// Methods of the controllers
 usersCtrl.getUsers = async (req, res) => {
    const users = await User.find();
    res.json(users);

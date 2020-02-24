@@ -1,6 +1,7 @@
 const mongoose = require('mongoose');
 const { Schema } = mongoose;
 
+// We created the schema
 const TransportSchema = new Schema ({
     number: {type: Number, required: true},
     brand: {type: String, required: true},
