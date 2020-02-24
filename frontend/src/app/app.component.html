@@ -1,16 +1,85 @@
 <div *ngIf="identity">
-  <h1>Myapp</h1>
   <app-menu></app-menu>
+  <a class="waves-effect waves-light btn-small" (click)="logout()"><i class="material-icons right">person_outline</i>Bienvenido: {{identity.name}}</a>
   <router-outlet></router-outlet>
-</div>
 
+</div>
 <div *ngIf="!identity">
   <div class="row">
       <div class="col s6">
         <h2>Login</h2>
+        <form #loginForm="ngForm" (ngSubmit)="onSubmitLogin(loginForm)" class="col s7">
+            <p>
+              <label>Email</label><input type="email" #email="ngModel" name="email" [(ngModel)]="user.email" required />
+            </p>
+            <p>
+              <label>Password</label><input type="password" #password="ngModel" name="password" [(ngModel)]="user.password"  required />
+            </p>
+            <input type="submit" value="Login" class="btn">
+        </form>
       </div>
       <div class="col s6">
         <h2>Register</h2>
+        <form #registerForm="ngForm" (ngSubmit)="onSubmitRegister(registerForm)" class="col s10">
+            <p>
+              <label>Name: </label><input type="text" #name="ngModel" name="name" [(ngModel)]="user_register.name" required />
+              <span *ngIf="name.touched && !name.valid">This field is required</span>
+            </p>
+            <p>
+              <label>Surname:</label><input type="text"  #surname="ngModel" name="surname" [(ngModel)]="user_register.surname" required />
+              <span *ngIf="surname.touched && !surname.valid">This field is required</span>
+            </p>
+            <p>
+              <label>DNI: </label><input type="text"  #dni="ngModel" name="dni" [(ngModel)]="user_register.dni" required />
+              <span *ngIf="dni.touched && !dni.valid">This field is required</span>
+            </p>
+            <p>
+              <label>Email: </label><input type="email"  #email="ngModel" name="email" [(ngModel)]="user_register.email" required />
+              <span *ngIf="email.touched && !email.valid">This field is required</span>
+            </p>
+            <p>
+              <label>Password: </label><input type="password"  #password="ngModel" name="password" [(ngModel)]="user_register.password" required />
+              <span *ngIf="password.touched && !password.valid">This field is required</span>
+            </p>
+            <p>
+              <label>Phone: </label><input type="text"  #tlf="ngModel" name="tlf" [(ngModel)]="user_register.tlf" required />
+              <span *ngIf="tlf.touched && !tlf.valid">This field is required</span>
+            </p>
+            <p>
+              <label>Transport: </label><input type="text"  #transport="ngModel" name="transport" [(ngModel)]="user_register.transport" required />
+              <span *ngIf="transport.touched && !transport.valid">This field is required</span>
+            </p>
+            <p>
+              <label>Discharge Date: </label><input type="text"  #discharge_date="ngModel" name="discharge_date" [(ngModel)]="user_register.discharge_date" required />
+              <span *ngIf="discharge_date.touched && !discharge_date.valid">This field is required</span>
+            </p>
+            <input type="submit" value="Register" class="btn">
+        </form>
       </div>
   </div>
 </div>
+<footer class="page-footer blue-grey">
+  <div class="container">
+    <div class="row">
+      <div class="col l6 s12">
+          <h5 class="white-text">Trans Al-Andalus</h5>
+          <p class="grey-text text-lighten-4">Esta aplicación esta basada en un MEAN-CRUD con Angular, Materialize, MongoDB, Nodejs</p>
+        </div>
+        <div class="col l4 offset-l2 s12">
+          <h5 class="white-text">Redes Sociales</h5>
+        <ul >
+          <li><a class="grey-text text-lighten-3" href="#!">Facebook</a></li>
+          <li><a class="grey-text text-lighten-3" href="#!">Google</a></li>
+          <li><a class="grey-text text-lighten-3" href="#!">Instagram</a></li>
+          <li><a class="grey-text text-lighten-3" href="#!">Linkedin</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="footer-copyright">
+    <div class="container">
+    © 2020 Copyright by Abel Herrero
+    <a class="grey-text text-lighten-4 right" href="#!">Más Informacion</a>
+    </div>
+  </div>
+</footer>

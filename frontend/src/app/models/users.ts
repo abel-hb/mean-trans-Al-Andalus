@@ -12,6 +12,8 @@ export class Users {
        public transport: String,
        public image: String,
        public discharge_date: String
-    ) {}
+    ) {
+        
+    }
   
 }

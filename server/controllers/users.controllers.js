@@ -24,18 +24,14 @@ usersCtrl.saveUser = (req, res) =>{
     user.name = params.name;
     user.surname = params.surname;
     user.dni = params.dni;
-    user.role = 'ROLE_USER';
     user.email = params.email;
     user.tlf = params.tlf;
     user.transport = params.transport;
     user.discharge_date = params.discharge_date;
+    user.role = 'ROLE_ADMIN';
     user.image = 'null';
-    console.log(user.name);
-    console.log(user.surname);
-    console.log(user.email);
-
     if (params.password){
-        bcrypt.hash(params.password,null,null,function(err,hash) {
+        bcrypt.hash(params.password,null,null,(err,hash) => {
             user.password = hash;
             if (user.name != null && user.surname != null && user.email != null){
                 //Save new user
@@ -44,7 +40,7 @@ usersCtrl.saveUser = (req, res) =>{
                         res.status(200).send({user:user});
                     })
                     .catch(err => {
-                        res.status(500).send({message:err});
+                        res.status(500).send({error:err});
                     });
             }else{
                 res.status(200).send({message: 'Fill out form.'});
@@ -61,7 +57,7 @@ usersCtrl.loginUser = (req, res) => {
     var email = params.email;
     var password = params.password;
 
-    User.findOne({email: email.toLowerCase()}, (err, user) => {
+    User.findOne({email:email.toLowerCase()}, (err, user) => {
         if(err){
             res.status(500).send({message: 'Error to server'});
         }else{
@@ -86,26 +82,26 @@ usersCtrl.loginUser = (req, res) => {
 }
 
 
-// usersCtrl.createUser = async (req, res) => {
-// try {
-//     const user = new User({
-//         name: req.body.name,
-//         surname: req.body.surname,
-//         dni: req.body.dni,
-//         email: req.body.email,
-//         tlf: req.body.tlf,
-//         transport: req.body.transport,
-//         discharge_date: req.body.discharge_date,
-//     });
-//     await user.save();
-//     res.json({
-//         'status': 'User saved'
-//     });
-// }  catch (error){
-//     res.json({status: 'User not saved'});
-// }  
+  usersCtrl.createUser = async (req, res) => {
+  try {
+      const user = new User({
+         name: req.body.name,
+         surname: req.body.surname,
+         dni: req.body.dni,
+          email: req.body.email,
+          tlf: req.body.tlf,
+          transport: req.body.transport,
+          discharge_date: req.body.discharge_date,
+      });
+      await user.save();
+      res.json({
+          'status': 'User saved'
+      });
+  }  catch (error){
+      res.json({status: 'User not saved'});
+  }  
 
-// };
+  };
 
 usersCtrl.editUser = async (req, res) =>{
 try {

@@ -23,7 +23,7 @@
                             ="userService.selectedUser.email" placeholder="Enter your Email">
                         </div>
                         <div class="input-field col s12">
-                            <input type="number" name="tlf" #tlf="ngModel" [(ngModel)]
+                            <input type="text" name="tlf" #tlf="ngModel" [(ngModel)]
                             ="userService.selectedUser.tlf" placeholder="Enter your Phone">
                         </div>
                         <div class="input-field col s12">
@@ -58,7 +58,7 @@
                     <th>Operations</th>
                 </thead>
                 <tbody>
-                    <tr *ngFor="let user of userService.users">
+                    <tr *ngFor="let user of userService.user">
                         <td>{{user.name}}</td>
                         <td>{{user.surname}}</td>
                         <td>{{user.dni}}</td>

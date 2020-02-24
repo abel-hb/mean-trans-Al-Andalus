@@ -8,7 +8,7 @@ const UsersSchema = new Schema ({
     role: {type: String, required: true},
     password: {type: String, required: true},
     email: {type: String, required: true},
-    tlf: {type: Number, required: true},
+    tlf: {type: String, required: true},
     transport: {type: String},
     image: {type: String},
     discharge_date: {type: String, required: true}

@@ -21,7 +21,6 @@ app.use('/api/type_trans', require('./routers/type_trans.routers'));
 
 app.use('/api/users/', require('./routers/users.routers'));
 
-
 //Starting the server
 app.listen(app.get('port'), ()=> {
     console.log('Server on port 3500');

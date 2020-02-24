@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-
+import { UsersService } from '../../services/users.service'
 @Component({
   selector: 'app-menu',
   templateUrl: './menu.component.html',
@@ -7,9 +7,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MenuComponent implements OnInit {
 
-  constructor() { }
+  public token = null;
+  public identity= null;
+
+  constructor(private userService: UsersService) { }
 
   ngOnInit() {
+    this.identity = this.userService.getIdentity();
+    this.token = this.userService.getToken();
   }
+  
 
 }
