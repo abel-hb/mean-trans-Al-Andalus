@@ -17,7 +17,7 @@ export class UsersService {
   public token = null;
 
   constructor(private http: HttpClient) {
-    //this.selectedUser = new Users('','','','','ROLER_USER','','',0,'','','');
+    this.selectedUser = new Users('','','','','ROLER_USER','','',0,'','','');
     this.url = GLOBAL.url;
   }
   
@@ -57,18 +57,42 @@ export class UsersService {
   
 
    getUser(){
-     return this.http.get(this.URL_API);
+    const httpOptions = {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json',
+        'Authorization': localStorage.getItem('token')
+      })
+    };
+     return this.http.get(this.URL_API, httpOptions);
    }
 
    createrUser(user: Users){
-     return this.http.post(this.URL_API, user);
+    const httpOptions = {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json',
+        'Authorization': localStorage.getItem('token')
+      })
+    };
+     return this.http.post(this.URL_API, user, httpOptions);
    }
 
    editUser(user: Users){
-     return this.http.put(this.URL_API+`/${user._id}`,user);
+    const httpOptions = {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json',
+        'Authorization': localStorage.getItem('token')
+      })
+    };
+     return this.http.put(this.URL_API+`/${user._id}`,user, httpOptions);
    }
 
    deletedUser(user: Users){
-     return this.http.delete(this.URL_API+`/${user._id}`);
+    const httpOptions = {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json',
+        'Authorization': localStorage.getItem('token')
+      })
+    };
+     return this.http.delete(this.URL_API+`/${user._id}`, httpOptions);
    }
 }

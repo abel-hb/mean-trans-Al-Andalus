@@ -4,7 +4,7 @@ const typeTransCtrl = require('../controllers/type_trans.controllers');
 const md_auth = require('../middleware/authenticated');
 
 
-router.get('/', typeTransCtrl.gettypeTrans);
+router.get('/',md_auth.ensureAuth, typeTransCtrl.gettypeTrans);
 router.post('/',md_auth.ensureAuth, typeTransCtrl.createtypeTran);
 router.get('/:id',md_auth.ensureAuth, typeTransCtrl.gettypeTran);
 router.put('/:id',md_auth.ensureAuth, typeTransCtrl.edittypeTran);

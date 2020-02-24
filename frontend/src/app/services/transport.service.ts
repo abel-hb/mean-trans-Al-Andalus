@@ -1,6 +1,9 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Transport } from '../models/transport';
+import { HttpHeaders } from '@angular/common/http';
+
+
 
 @Injectable()
 export class TransportService {
@@ -13,19 +16,43 @@ export class TransportService {
     this.selectedTransport = new Transport();
   }
   getTransport(){
-    return this.http.get(this.URL_API);
+    const httpOptions = {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json',
+        'Authorization': localStorage.getItem('token')
+      })
+    };
+    return this.http.get(this.URL_API, httpOptions);
   }
 
   createrTransport(transport: Transport){
-    return this.http.post(this.URL_API, transport);
+    const httpOptions = {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json',
+        'Authorization': localStorage.getItem('token')
+      })
+    };
+    return this.http.post(this.URL_API, transport, httpOptions);
   }
 
   editTransport(transport: Transport){
-    return this.http.put(this.URL_API+`/${transport._id}`,transport);
+    const httpOptions = {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json',
+        'Authorization': localStorage.getItem('token')
+      })
+    };
+    return this.http.put(this.URL_API+`/${transport._id}`,transport, httpOptions);
   }
 
   deletedTransport(transport: Transport){
-    return this.http.delete(this.URL_API+`/${transport._id}`);
+    const httpOptions = {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json',
+        'Authorization': localStorage.getItem('token')
+      })
+    };
+    return this.http.delete(this.URL_API+`/${transport._id}`, httpOptions);
   }
 
 }

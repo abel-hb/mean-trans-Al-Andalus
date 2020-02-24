@@ -1,6 +1,9 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Places } from '../models/places';
+import { HttpHeaders } from '@angular/common/http';
+
+
 
 @Injectable()
 export class PlacesService {
@@ -13,19 +16,43 @@ export class PlacesService {
     this.selectedPlace = new Places();
   }
   getPlace(){
-    return this.http.get(this.URL_API);
+    const httpOptions = {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json',
+        'Authorization': localStorage.getItem('token')
+      })
+    };
+    return this.http.get(this.URL_API, httpOptions);
   }
 
   createrPlace(place: Places){
-    return this.http.post(this.URL_API, place);
+    const httpOptions = {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json',
+        'Authorization': localStorage.getItem('token')
+      })
+    };
+    return this.http.post(this.URL_API, place, httpOptions);
   }
 
   editPlace(place: Places){
-    return this.http.put(this.URL_API+`/${place._id}`,place);
+    const httpOptions = {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json',
+        'Authorization': localStorage.getItem('token')
+      })
+    };
+    return this.http.put(this.URL_API+`/${place._id}`,place, httpOptions);
   }
 
   deletedPlace(place: Places){
-    return this.http.delete(this.URL_API+`/${place._id}`);
+    const httpOptions = {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json',
+        'Authorization': localStorage.getItem('token')
+      })
+    };
+    return this.http.delete(this.URL_API+`/${place._id}`, httpOptions);
   }
 
 }

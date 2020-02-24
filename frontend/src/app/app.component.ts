@@ -20,7 +20,7 @@ export class AppComponent {
    public token = null;
 
    constructor(private userService: UsersService, private router: Router){
-     this.user = new Users('','','','','ROLER_USER','','',0,'','','');
+    this.user = new Users('','','','','ROLER_USER','','',0,'','','');
      this.user_register = new Users('','','','','ROLER_USER','','',0,'','','');
 
    }
